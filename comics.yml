@@ -1,0 +1,33 @@
+{spawn: 
+{issue1: ["title_of_spawn1", "img_path1", "synopsis1"],
+ issue2: ["title_of_spawn2", "img_path2", "synopsis2"],
+ issue3: ["title_of_spawn3", "img_path3", "synopsis3"],
+ issue4: ["title_of_spawn4", "img_path4", "synopsis4"],
+ issue5: ["title_of_spawn5", "img_path5", "synopsis5"],
+ issue6: ["title_of_spawn6", "img_path6", "synopsis6"],
+},
+batman: {
+issue1: ["title_of_batman1", "img_path1", "synopsis1"],
+issue2: ["title_of_batman2", "img_path2", "synopsis2"],
+issue3: ["title_of_batman3", "img_path3", "synopsis3"],
+issue4: ["title_of_batman4", "img_path4", "synopsis4"],
+issue5: ["title_of_batman5", "img_path5", "synopsis5"],
+issue6: ["title_of_batman6", "img_path6", "synopsis6"],
+},
+spiderman: {
+issue1: ["title_of_spiderman1", "img_path1", "synopsis1"],
+issue2: ["title_of_spiderman2", "img_path2", "synopsis2"],
+issue3: ["title_of_spiderman3", "img_path3", "synopsis3"],
+issue4: ["title_of_spiderman4", "img_path4", "synopsis4"],
+issue5: ["title_of_spiderman5", "img_path5", "synopsis5"],
+issue6: ["title_of_spiderman6", "img_path6", "synopsis6"],
+},
+wonder_woman: {
+issue1: ["title_of_wonder_woman1", "img_path1", "synopsis1"],
+issue2: ["title_of_wonder_woman2", "img_path2", "synopsis2"],
+issue3: ["title_of_wonder_woman3", "img_path3", "synopsis3"],
+issue4: ["title_of_wonder_woman4", "img_path4", "synopsis4"],
+issue5: ["title_of_wonder_woman5", "img_path5", "synopsis5"],
+issue6: ["title_of_wonder_woman6", "img_path6", "synopsis6"],
+}
+}
