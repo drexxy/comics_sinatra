@@ -1,11 +1,11 @@
-	<h1><%= Character::ComicLibrary::char %></h1>
-	<h2><%= issueNumber = request.path_info.split("s/").last.gsub("-", " ").split("/").last.gsub(/\w+/, &:capitalize) %></h2>
+	<h1><%= @title.gsub(/\w+/, &:capitalize) %></h1>
+	<h2><%= @issue.gsub("_", " ").capitalize %></h2>
+
+	<h3><%= @comic.title %></h3>
+
+	<h4><%= @hello %></h4>
 
 
+	<img class="issue-img" src=<%= @comic.img_path  %> alt="Comic Cover" >
 
-	<h3><%= Object.const_get(character.upcase).title(character.downcase.to_sym, issueNumber.gsub(" ", "").downcase.to_sym, 0)  %></h3>
-
-
-	<img class="issue-img" src="">
-	<p><%=  %>Synopsis</p>
-	<p><%= Character::ComicLibrary::thing["spawn"]["issue1"][1] %></p>
+	<p><%= @comic.synopsis %></p>

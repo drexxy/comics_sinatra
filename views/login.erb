@@ -1,0 +1,21 @@
+<h2>Please login</h2>
+
+<% if flash[:signed_in] %>
+  <%= "Your login is incorrect, what's wrong with you?!" %>
+<% end %>
+
+
+<form action="/login" method="POST"  >
+	<fieldset>
+		<label for="username">Username</label>
+		<input type="text" name="username" id="username">
+	</fieldset>
+	<fieldset>
+		<label for="password">Pasword</label>
+		<input type="text" name="password" id="password">
+	</fieldset>
+	<fieldset>
+	  <label for="submit"></label>
+	  <input type="submit" value="Submit" name="submit" id="submit">
+	</fieldset>
+</form>
