@@ -1,10 +1,12 @@
 class Character
 
-	attr_accessor :comic_series, :issue, :title, :img_path, :synopsis
+	attr_accessor :comic_series, :issue, :title, :img_path, :synopsis, :issues
 
 	def initialize(args)
 		args.keys.each do |key|
 			instance_variable_set("@#{key}".to_sym, args[key])
 		end
 	end
+
 end
+

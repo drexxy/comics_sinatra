@@ -12,14 +12,12 @@ get '/' do
 end
 
 get '/comics/:series/?:issue?' do
-	@title = params['series']
+	@series = params['series']
 	if params['issue']
 		@issue = params['issue']
-		@comic_show = YAML.load_stream(File.open('./comics.yml'))
-		binding.pry
-		if @issue == "issue-#{@comic_show.issue}" && @title.capitalize == @comic_show.comic_series
-			erb :issues, :layout => :'layouts/main'
-		end
+		@comic_show = YAML.load_stream(File.open("./#{@series}.yml"))
+		@comic_show.select! { |c| c.issue == @issue}
+		erb :issues, :layout => :'layouts/main'
 	else
 		erb :characters, :layout => :'layouts/main'
 	end
@@ -49,6 +47,7 @@ end
 
 post '/add' do
 	@comic = Character.new(comic_series: params['comic-series'], issue: params['issue'], title: params['title'], img_path: params['image-path'], synopsis: params['synopsis'])
-	File.open('./comics.yml', 'a') { |f| f.write @comic.to_yaml }
+	@yaml_name = params['comic-series'].downcase.gsub(" ", "-")
+	File.open("./#{@yaml_name}.yml", 'a') { |f| f.write @comic.to_yaml }
   redirect '/add'
 end	

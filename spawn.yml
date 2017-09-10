@@ -2,7 +2,7 @@
 comic_series: Spawn
 issue: '1'
 title: Questions Pt.1
-img_path: images/spawn_1.jpeg
+img_path: /images/spawn_1.jpeg
 synopsis: While a strange assailant stalks the city, ripping out human hearts, another
   otherworldly being arrives. As his mind reels, our tortured hero remembers that
   he struck a deal with the devil in order to return to his beloved wife - five years
@@ -11,7 +11,7 @@ synopsis: While a strange assailant stalks the city, ripping out human hearts, a
 comic_series: Spawn
 issue: '2'
 title: Questions Pt.2
-img_path: images/spawn_2.jpeg
+img_path: /images/spawn_2.jpeg
 synopsis: Spawn decides to find Wanda, but fears her reaction to what he's become.
   With his new powers, he attempts to change his ravaged features, with disappointing
   results. Exhausted, he collapses, only to be taunted by a foul-mouthed dwarf in

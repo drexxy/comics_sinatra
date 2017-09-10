@@ -1,11 +1,11 @@
-	<h1><%= @title.gsub(/\w+/, &:capitalize) %></h1>
-	<h2><%= @issue.gsub("_", " ").capitalize %></h2>
+<main>
+	<section>
+		<img class="header-img" src="/images/<%= @series %>_background.png">
 
-	<h3><%= @comic.title %></h3>
+		<h2>Issue - <%= @issue %></h2><!--
+		--><h2><%= @comic_show[0].title %></h2>
 
-	<h4><%= @hello %></h4>
-
-
-	<img class="issue-img" src=<%= @comic.img_path  %> alt="Comic Cover" >
-
-	<p><%= @comic.synopsis %></p>
+		<p><%= @comic_show[0].synopsis %></p>
+	</section>
+	<img class="issue-img" src=<%= @comic_show[0].img_path  %> alt="Comic Cover" >
+</main>

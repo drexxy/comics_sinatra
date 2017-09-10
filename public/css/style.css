@@ -1,3 +1,105 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
 body {
 	background-color: yellow;
+}
+
+h1 {
+	font-size: 5rem;
+	text-align: center;
+}
+
+header {
+	width: 100%;
+}
+
+nav {
+	width: 100%;
+	background-color: black;
+	margin: 0;
+	text-align: right;
+	height: 40px;
+}
+
+header ul {
+	height: 100%;
+}
+
+header li {
+	display: inline-block;
+	color: white;
+	width: 10%;
+	text-align: center;
+	height: 100%;
+	border-left: 1px solid white;
+}
+
+.drop-down {
+	display: none;
+	position: absolute;
+	width: inherit;
+}
+
+.drop-down-button:hover .drop-down {
+	display: block;
+}
+
+.drop-down-items {
+	width: 100%;
+	height: auto;
+	border: 1px solid white;
+	background-color: black;
+}
+
+li>a{
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	color: white;
+	display: inline-block;
+	padding: 12px 6px;
+	box-sizing: border-box;
+	text-decoration: none;
+	transition: 0.5s background-color;
+}
+
+li a:hover {
+	background-color: grey; 
+}
+
+section {
+	width: 60%;
+	display: inline-block;;
+	margin-left: 5%
+}
+
+section h2 {
+	display: inline-block;
+	width: 40%;
+	font-size: 3rem;
+	margin-left: 5%;
+}
+
+section p {
+	font-size: 2rem;
+	display: inline-block;
+	width: 60%;
+	margin-left: 10%;
+	margin-top: 5%;
+}
+
+section img {
+	width: 80%
+}
+
+.issue-img {
+	width: 25%;
 }
