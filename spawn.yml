@@ -16,3 +16,12 @@ synopsis: Spawn decides to find Wanda, but fears her reaction to what he's becom
   With his new powers, he attempts to change his ravaged features, with disappointing
   results. Exhausted, he collapses, only to be taunted by a foul-mouthed dwarf in
   clown makeup.
+--- !ruby/object:Character
+comic_series: Spawn
+issue: '3'
+title: Questions Pt.3
+img_path: "/images/spawn_3.jpeg"
+synopsis: Watching from the shadows, Spawn is shocked to find that Wanda has married
+  and had a daughter with his best friend, Terry Fitzgerald. His anguish becomes physical
+  when the ugly clown reappears, transforms into the Violator, and rips out Spawn's
+  heart!

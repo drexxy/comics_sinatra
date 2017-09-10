@@ -1,0 +1,12 @@
+<img class="header-series-img" src="/images/<%= @series %>_background.png">
+
+<% @series_page = YAML.load_stream(File.open("./#{@series}.yml")) %>
+
+<ul>
+	<% (1..@series_page.length).each do |i|%>
+	<li class="issue-links">
+	<img id="image<%= i %>" class ="comic-links"src= <%= @series_page[i-1].img_path %> >
+	<a id="issue<%= i %>" href="/comics/<%= @series %>/<%= i %>">Issue <%= "#{i}" %></a>
+	</li>
+	<% end %>
+</ul>

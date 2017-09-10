@@ -1,0 +1,8 @@
+--- !ruby/object:Character
+comic_series: Ironman
+issue: '1'
+title: Alone Against A.I.M.!
+img_path: /images/ironman_1.jpg
+synopsis: Iron Man is captured by A.I.M using a suction beam and trapped in a submarine
+  by orders of Mordius. Meanwhile A.I.M. soldiers are gloating about how they have
+  sunk The Maggia’s gambling ship and destroyed their leadership.
