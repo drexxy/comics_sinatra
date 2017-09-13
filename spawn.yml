@@ -25,3 +25,18 @@ synopsis: Watching from the shadows, Spawn is shocked to find that Wanda has mar
   and had a daughter with his best friend, Terry Fitzgerald. His anguish becomes physical
   when the ugly clown reappears, transforms into the Violator, and rips out Spawn's
   heart!
+--- !ruby/object:Character
+comic_series: Spawn
+issue: '4'
+title: Questions Pt.4
+img_path: "/images/spawn_4.jpeg"
+synopsis: Violator and Spawn fight brutally until Malebolgia intervenes, explaining
+  to them that they are both his minions in his battle against Heaven. Malebolgia
+  also punishes Violator for his unscheduled killing spree, locking him in his clown
+  form.
+--- !ruby/object:Character
+comic_series: Spawn
+issue: '5'
+title: Justice
+img_path: "/images/spawn_5.jpeg"
+synopsis: Violator and Spawn fight brutally until Malebolgia intervenes, explaining to them that they are both his minions in his battle against Heaven. Malebolgia also punishes Violator for his unscheduled killing spree, locking him in his clown form.

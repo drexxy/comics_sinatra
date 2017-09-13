@@ -25,3 +25,9 @@
   </fieldset>
 
 </form>
+
+<% if flash[:added] %> 
+<% db = SQLite3::Database.new("comics.db")  %>
+<% result = db.execute("SELECT * FROM comics ORDER BY(ID) DESC LIMIT 1") %>
+  <%= "You have succesfully added the Comic: #{result[0][1]} Issue: #{result[0][2]} with ID: #{result[0][0]} " %>
+<% end %>

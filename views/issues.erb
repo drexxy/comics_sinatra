@@ -3,9 +3,12 @@
 		<img class="header-issue-img" src="/images/<%= @series %>_background.png">
 
 		<h2>Issue - <%= @issue %></h2><!--
-		--><h2><%= @comic_show[0].title %></h2>
+		--><h2><%= @comic_show.title %></h2>
 
-		<p><%= @comic_show[0].synopsis %></p>
+		<p><%= @comic_show.synopsis %></p>
+
+		<p>ID: <%= @comic_show.id %></p>
+
 	</section>
-	<img class="issue-img" src=<%= @comic_show[0].img_path  %> alt="Comic Cover" >
+	<img class="issue-img" src=<%= @comic_show.img_path  %> alt="Comic Cover" >
 </main>

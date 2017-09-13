@@ -4,6 +4,7 @@ require 'pry'
 require './comic.rb'
 require 'yaml'
 require 'sinatra/flash'
+require 'sqlite3'
 
 enable :sessions
 
@@ -15,9 +16,21 @@ get '/comics/:series/?:issue?' do
 	@series = params['series']
 	if params['issue']
 		@issue = params['issue']
-		@comic_show = YAML.load_stream(File.open("./#{@series}.yml"))
-		@comic_show.select! { |c| c.issue == @issue}
-		erb :issues, :layout => :'layouts/main'
+		db = SQLite3::Database.new("comics.db")
+		result = db.execute("select * from comics WHERE comic_series = :series  and issue_number = :number",
+								@series.capitalize,
+								@issue)
+		if result.empty?
+			redirect "/"
+		else
+			@comic_show = Comic.new(id: result[0][0],
+														comic_series: result[0][1], 
+														issue: result[0][2], 
+														title: result[0][3], 
+														img_path:result[0][4], 
+														synopsis: result[0][5])
+			erb :issues, :layout => :'layouts/main'
+		end
 	else
 		erb :characters, :layout => :'layouts/main'
 	end
@@ -26,6 +39,30 @@ end
 get '/add' do
 	if session[:signed_in]
 		erb :add_comic, :layout => :'layouts/main'
+	else
+		redirect '/login'
+	end
+end
+
+get '/delete' do
+	if session[:signed_in]
+		erb :delete, :layout => :'layouts/main'
+	else
+		redirect '/login'
+	end
+end
+
+get '/edit' do
+	if session[:signed_in]
+		erb :edit, :layout => :'layouts/main'
+	else
+		redirect '/login'
+	end
+end
+
+get '/search' do
+	if session[:signed_in]
+		erb :search, :layout => :'layouts/main'
 	else
 		redirect '/login'
 	end
@@ -46,8 +83,36 @@ post '/login' do
 end
 
 post '/add' do
-	@comic = Character.new(comic_series: params['comic-series'], issue: params['issue'], title: params['title'], img_path: params['image-path'], synopsis: params['synopsis'])
-	@yaml_name = params['comic-series'].downcase.gsub(" ", "-")
-	File.open("./#{@yaml_name}.yml", 'a') { |f| f.write @comic.to_yaml }
-  redirect '/add'
+	@comic = Comic.new(comic_series: params['comic-series'],
+										 issue: params['issue'],
+										 title: params['title'], 
+										 img_path: params['image-path'], 
+										 synopsis: params['synopsis'])
+	@comic.save
+	flash[:added] = true
+	redirect '/add'
 end	
+
+get '/db' do
+ db = SQLite3::Database.new("comics.db")
+ db.execute <<-SQL
+  create table IF NOT EXISTS comics (
+    ID INTEGER PRIMARY KEY NOT NULL,
+    comic_series varchar(20),
+    issue_number int,
+    title varchar(50),
+    img_path varchar,
+    synopsis varchar
+  );
+	SQL
+
+  new_one =	Comic.find(1)
+
+  binding.pry
+
+	 db.execute("select * from comics") do |row|
+	 	p row
+	 end
+
+ redirect "/"
+end
