@@ -30,18 +30,18 @@ class Comic
 						synopsis: findings[0][5])
   end
 
-  def update(changes)
+  def update(id, column, new_info)
   	db = SQLite3::Database.new("comics.db")
-  	Comic.find(id)
-  	db.execute("UPDATE comics SET column_name = new_value WHERE id = ?",
-  							id_value)
+  	db.execute("UPDATE comics SET ID = :new_info WHERE id = :id",
+  							"new_info" => new_info,
+  							"id" => id)
   end
 
   def delete
   	db = SQLite3::Database.new("comics.db")
-  	Comic.find(id)
+  	delete_comic = Comic.find(id)
   	db.execute("DELETE FROM comics WHERE id = ?",
-  							id_value)
+  							delete_comic.id)
   end
 
 end

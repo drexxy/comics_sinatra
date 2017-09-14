@@ -60,12 +60,36 @@ get '/edit' do
 	end
 end
 
+post '/edit' do
+	db = SQLite3::Database.new("comics.db")
+  db.execute("UPDATE comics SET ID = :idedit,
+																comic_series = :comicseries,
+																title = :title,
+																issue_number = :issuenumber,	
+																img_path = :imgpath,
+																synopsis = :synopsis 
+																WHERE id = :id",
+																"id" => params['static-id'],
+																"idedit" => params['id'],
+              									"comicseries" => params['comic-series'],
+              									"title" => params['title'],
+              									"issuenumber" => params['issue-number'],
+              									"imgpath" => params['image-path'],
+              									"synopsis" => params['synopsis'])
+  redirect "/"              								
+end
+
 get '/search' do
 	if session[:signed_in]
 		erb :search, :layout => :'layouts/main'
 	else
 		redirect '/login'
 	end
+end
+
+post '/search' do
+	@comic_edit = Comic.find(params['id-search'])
+	erb :edit, :layout => :'layouts/main'
 end
 
 get '/login' do
@@ -98,17 +122,15 @@ get '/db' do
  db.execute <<-SQL
   create table IF NOT EXISTS comics (
     ID INTEGER PRIMARY KEY NOT NULL,
-    comic_series varchar(20),
+    comic_series varchar,
     issue_number int,
-    title varchar(50),
+    title varchar,
     img_path varchar,
     synopsis varchar
   );
 	SQL
 
   new_one =	Comic.find(1)
-
-  binding.pry
 
 	 db.execute("select * from comics") do |row|
 	 	p row
